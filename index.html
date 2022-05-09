@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/icons.css" rel="stylesheet">
+    <title>Shopingo - eCommerce HTML Template</title>
+</head>
+
+<body style="background-color: #F0ECEC">
+    <!--Toas-->
+    <div id="liveToast" class="toast position-fixed top-0 end-0" data-bs-delay="10000" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 99999;">
+        <div class="toast-header">
+            <img style="width: 25px" src="https://cdn-icons-png.flaticon.com/512/391/391175.png" class="rounded me-2" alt="...">
+            <strong class="me-auto">Позиію добавленно</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Позицію добавленно
+        </div>
+    </div>
+    <div id="liveToastStop" class="toast position-fixed top-0 end-0" data-bs-delay="10000" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 99999;">
+        <div class="toast-header">
+            <img style="width: 25px" src="https://cdn-icons-png.flaticon.com/512/458/458594.png" class="rounded me-2" alt="...">
+            <strong class="me-auto">Скасовано</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Нічого не добавлено!
+        </div>
+    </div>
+    <div class="wrapper">
+
+        <!--start top header wrapper-->
+        <div class="header-wrapper ">
+            <div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top ">
+                <div class="header-content pb-3 pb-md-0  ">
+                    <div class="container ">
+                        <div class="row align-items-center">
+                            <div class="col-4 col-md-auto">
+                                <div class="d-flex align-items-center">
+                                    <div class="mobile-toggle-menu d-lg-none px-lg-2" data-trigger="#navbar_main"><i class='bx bx-menu'></i>
+                                    </div>
+                                    <div class="logo d-none d-lg-flex">
+                                        <a href="index.html">
+                                            <img style="height: 50px; width: 50px" src="assets/images/food-irradiation.png" class="logo-icon" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-md order-4 order-md-2">
+                                <div class="input-group flex-nowrap px-xl-4">
+                                    <input type="text" class="form-control w-100" placeholder="Search for Products" id="searchText">
+                                     <span onclick="startSearchNow()" class="input-group-text cursor-pointer bg-transparent"><i class='bx bx-search'></i></span>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-auto order-3 d-none d-xl-flex align-items-center" onclick="startSearchNow()" id="startSearch">
+
+                            </div>
+
+                        </div>
+                        <!--end row-->
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="top-menu border-bottom" style="margin-top: 80px">
+
+            </div>
+            <div class="d-flex justify-content-around fixed-top overflow-auto scroll-container" style="margin-top: 55px; background-color: white">
+                <ul class="flex-column" id="searchList">
+                    <h2 class="errorSearch" style="display: none">нічого не знайдено</h2>
+
+                </ul>
+            </div>
+            <div class="header-content pb-3 pb-md-0">
+
+            </div>
+            <div class="primary-menu border-top">
+                <div class="container">
+                    <h1>Shop header</h1>
+                    <nav id="navbar_main" class="mobile-offcanvas navbar navbar-expand-lg">
+                        <div class="offcanvas-header">
+                            <button class="btn-close float-end"></button>
+                            <h5 class="py-2">Navigation</h5>
+                        </div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item active"> <a class="nav-link" href="index.html">Home </a>
+                            </li>
+
+                            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">Shop </a>
+
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Blog </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="#">About Us </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Contact Us </a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Our Store</a>
+                            </li>
+                            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">My Account </a>
+
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+     
+        <div class="page-wrapper">
+            <div class="page-content">
+                <!--start information-->
+
+                <section class="py-3 border-top border-bottom">
+                    <div class="container">
+                        <div class="row row-cols-3 row-cols-lg-3 justify-content-start ">
+
+                         
+                            <div class="col allPos">
+
+                                <div class="d-flex align-items-center p-3 bg-white allPos" style="height: 80px">
+
+                                    <div class="info-box-content ps-3">
+                                        <h6 class="mb-1">Всі товари</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col tile">
+
+                                <div class="d-flex align-items-center p-3 bg-white tileCont" style="height: 80px">
+
+                                    <div class="info-box-content ps-3">
+                                        <h6 class="mb-1">Плитка</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col plumbing">
+                                <div style="height: 80px" class="plumbing d-flex align-items-center p-3 bg-white">
+
+                                    <div class="info-box-content ps-2">
+                                        <h6 class="mb-0">Ванни</h6>
+                                        <p class="mb-0"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!--end row-->
+                    </div>
+                </section>
+                <!--end information-->
+                <!--start pramotion-->
+
+
+                <section class="py-4">
+                    <div class="container">
+
+                        <section class="py-3 border-bottom border-top d-none d-md-flex bg-light">
+                            <div class="container">
+                                <div id="locate" class="page-breadcrumb d-flex align-items-center">
+                                    <h3 class="breadcrumb-title pe-3">Shop Categories</h3>
+                                    <div class="ms-auto">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb mb-0 p-0">
+                                                <li class="breadcrumb-item"><a href="index.html"><i class="bx bx-home-alt"></i> Home</a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a href="javascript:;" class="category">Shop</a>
+                                                </li>
+                                                <li class="breadcrumb-item active" aria-current="page">Shop Categories</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="py-0 py-lg-4">
+
+
+                        </section>
+
+                        <div class="col" style="height: 150px">
+                            <div class="rounded-0 row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-1">
+
+
+                                <a id="addBlockPos" href="javascript:;" class="btn btn-light btn-ecomm col-sm-12 col-md-12 col-lg-12" data-bs-toggle="modal" data-bs-target="#QuickViewProduct_two" style="display: block">
+                                    <!--<i class="bx bx-zoom-in"></i> <img src="assets/images/plus.png" style="width: 2%; margin: 90px;" class="card-img-top" alt="...">-->
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">Добавити позицію</button>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="product-grid">
+                            <div id="products" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+
+
+
+                            </div>
+                            <!--end row-->
+                        </div>
+                        <div class="container" style="margin-top: 50px">
+                            <h4>Our Story</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+
+            </div>
+        </div>
+        <!--end page wrapper -->
+        <!--start footer section-->
+        <footer>
+            <section class="py-2 border-top bg-light">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
+
+
+                        <div class="col">
+                            <div class="footer-section3 mb-2">
+                                <h6 class="mb-3 text-uppercase">Popular Tags</h6>
+                                <div class="tags-box"> <a href="javascript:;" class="tag-link">Cloths</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                    <a href="javascript:;" class="tag-link">Категорія</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="footer-section4 mb-3">
+                                <h6 class="mb-3 text-uppercase">Stay informed</h6>
+                                <div class="subscribe">
+                                    <input type="text" class="form-control radius-30" placeholder="Enter Your Email" />
+                                    <div class="mt-2 d-grid"> <a href="javascript:;" class="btn btn-dark btn-ecomm radius-30">Subscribe</a>
+                                    </div>
+                                    <p class="mt-2 mb-0 font-13">Subscribe to our newsletter to receive early discount offers, updates and new products info.</p>
+                                </div>
+                                <div class="download-app mt-3">
+                                    <h6 class="mb-3 text-uppercase">Download our app</h6>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <a href="javascript:;">
+                                            <img src="assets/images/icons/apple-store.png" class="" width="160" alt="" />
+                                        </a>
+                                        <a href="javascript:;">
+                                            <img src="assets/images/icons/play-store.png" class="" width="160" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end row-->
+                    <hr />
+
+                    <!--end row-->
+                </div>
+            </section>
+        </footer>
+
+        <div class="modal fade" id="QuickViewProduct">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-xl-down">
+                <div class="modal-content rounded-0 border-0">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal"></button>
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-6">
+                                <div id="addImg">
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="product-info-section p-3">
+                                    <h3 id="nameInfo" class="mt-3 mt-lg-0 mb-0">Allen Solly Men's Polo T-Shirt</h3>
+
+                                    <div class="d-flex align-items-center mt-3 gap-2">
+
+                                        <h4 id="priceInfo" class="mb-0">$49.00</h4>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6>Опис :</h6>
+                                        <p id="descrInfo" class="mb-0">Virgil Abloh’s Off-White is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers.</p>
+                                    </div>
+
+
+                                    <!--end row-->
+                                    <div class="d-flex gap-2 mt-3">
+                                        <a href="javascript:;" class="btn btn-dark btn-ecomm"> <i class="bx bxs-cart-add"></i>Add to Cart</a> <a href="javascript:;" class="btn btn-light btn-ecomm"><i class="bx bx-heart"></i>Add to Wishlist</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container border">
+                            <div class="container md-3 my-5">
+                                <h2 class="row">ХАРАКТЕРИСТИКИ</h2>
+                            </div>
+                            <div class="row mt-2 row-cols-2 border-bottom border-top">
+                                <dt class="col-sm-2" id="">Колір:</dt>
+                                <dd class="col-sm-4 " id="colorInfo">Сірий / Бежевий / Коричневий</dd>
+                                <dt class="col-sm-2">Стиль продукту:</dt>
+                                <dd class="col-sm-4 " id="materialInfo">Дерево</dd>
+
+                            </div>
+                            <div class="row mt-2 row-cols-2 border-bottom">
+                                <dt class="col-sm-2">Тип товару:</dt>
+                                <dd class="col-sm-4 " id="typeInfo">Плитка підлогова / Керамограніт</dd>
+                                <dt class="col-sm-2">Бренд:</dt>
+                                <dd class="col-sm-4 " id="brandInfo">CERSANIT</dd>
+
+                            </div>
+                            <div class="row mt-2 row-cols-2 border-bottom">
+                                <dt class="col-sm-2">Колекція:</dt>
+                                <dd class="col-sm-4 " id="kolectionInfo">Frenchwood</dd>
+                                <dt class="col-sm-2">Країна походження:</dt>
+                                <dd class="col-sm-4 " id="countrInfo">Польща</dd>
+
+                            </div>
+                            <div class="row mt-2 row-cols-2 border-bottom">
+                                <dt class="col-sm-2">Матеріал:</dt>
+                                <dd class="col-sm-4 " id="materialInfo">Керамограніт</dd>
+                                <dt class="col-sm-2">Поверхня</dt>
+                                <dd class="col-sm-4 " id="surfaceInfo">Матова / Структурна</dd>
+
+                            </div>
+                            <div class="row mt-2 row-cols-2 border-bottom">
+                                <dt class="col-sm-2">Клас стирання:</dt>
+                                <dd class="col-sm-4 " id="clStInfo">PEI 4</dd>
+                                <dt class="col-sm-2">Клас антиковзкості:</dt>
+                                <dd class="col-sm-4 " id="clSlInfo">R10</dd>
+
+                            </div>
+                            <div class="row mt-2 row-cols-2 border-bottom">
+                                <dt class="col-sm-2">Додаткові параметри:</dt>
+                                <dd class="col-sm-4 " id="winteInfo">Морозостійка</dd>
+                                <dt class="col-sm-2">Ширина:</dt>
+                                <dd class="col-sm-4 " id="Info">185</dd>
+
+                            </div>
+                            <div class="row mt-2 row-cols-2 border-bottom">
+                                <dt class="col-sm-2" id="Info">Довжина:</dt>
+                                <dd class="col-sm-4 ">598</dd>
+                                <dt class="col-sm-2">Стиль продукту:</dt>
+                                <dd class="col-sm-4 " id="styleInfo">Дерево</dd>
+
+                            </div>
+
+
+                        </div>
+                        <div class="text-center m-4"><button onclick="infoPre()" type="button" class="btn btn-primary btn-lg">Попередній</button>
+                            <button onclick="infoNext()" type="button" class="btn btn-secondary btn-lg">Наступний</button>
+                        </div>
+                        <!--end row-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade " id="QuickViewProduct_two">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-xl-down">
+                <div class="modal-content rounded-0 border-0">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close float-end butClose stopAds" data-bs-dismiss="modal" id="liveToastBtnStop"></button>
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-6">
+                                <div class="image-zoom-section">
+                                    <div class=" owl-theme border mb-3 p-3" data-slider-id="1">
+                                        <div class="item">
+
+                                            <img src="" class="img-fluid" alt="">
+                                            <div class="input-group mb-3">
+
+                                                <span class="input-group-text" id="basic-addon3">URL Фото для товару</span>
+                                                <input type="text" class="form-control" id="addImgNew" aria-describedby="basic-addon3">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="product-info-section p-3">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Категорія</span>
+                                        <select id="selectId">
+
+                                            <option value="tile" >Плитка</option>
+                                            <option value="tileBath">Плитка для ванни</option>
+                                            <option value="plumbing">Ванни</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Назва</span>
+                                        <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Ціна</span>
+                                        <input type="text" id="price" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    </div>
+                                    <div class="mt-3">
+
+                                        <h6>Опис :</h6>
+                                        <input type="text" id="descript" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+
+
+                                    <!--end row-->
+                                    <div class="d-flex gap-2 mt-3">
+
+                                        <button type="button" class="addPos btn btn-primary " data-bs-dismiss="modal" id="liveToastBtn">Додати товар</button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container border">
+                            <div class="container md-3 my-5">
+                                <h2 class="row">ХАРАКТЕРИСТИКИ</h2>
+                            </div>
+
+                            <div class="row mt-2 row-cols-2 border-bottom border-top">
+
+                                <div class="col-sm-1 input-group input-group-sm mb-2">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Колір</span>
+                                    <input type="text" id="color" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Стиль продукту</span>
+                                    <input type="text" id="style" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-2">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Тип товару</span>
+                                    <input type="text" id="type" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Бренд</span>
+                                    <input type="text" id="brand" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Колекція</span>
+                                    <input type="text" id="kolection" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Країна походження</span>
+                                    <input type="text" id="countr" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Матеріал</span>
+                                    <input type="text" id="material" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Поверхня</span>
+                                    <input type="text" id="surface" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Клас стирання</span>
+                                    <input type="text" id="clSt" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Клас антиковзкості</span>
+                                    <input type="text" id="clSl" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Додаткові параметри</span>
+                                    <input type="text" id="other" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Ширина</span>
+                                    <input type="text" id="width" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Довжина</span>
+                                    <input type="text" id="height" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+                        </div>
+
+                        <!--end row-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end quick view product-->
+        <div class="modal fade " id="QuickViewProduct_red">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-xl-down">
+                <div class="modal-content rounded-0 border-0">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close float-end butClose" data-bs-dismiss="modal"></button>
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-6">
+                                <div id="imgRedact">
+                                    <span class="input-group-text" id="basic-addon3">URL Фото для товару</span>
+                                    <input type="text" class="form-control" id="imgRedactFoto" aria-describedby="basic-addon3">
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                                <div class="product-info-section p-3">
+                                    <div class="col-sm-1 input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Назва</span>
+                                        <input type="text" id="nameRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Ціна</span>
+                                        <input type="text" id="priceRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Код</span>
+                                        <input type="text" id="kodeRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    </div>
+                                    <div class="mt-3">
+
+                                        <h6>Опис :</h6>
+                                        <input type="text" style="height: 200px" id="descriptRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+
+
+                                    <!--end row-->
+                                    <div class="d-flex gap-2 mt-3">
+
+                                        <button type="button" class="redPos btn btn-primary" id="liveToastBtn" data-bs-dismiss="modal">Редагувати товар</button>
+
+                                        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container border">
+                            <div class="container md-3 my-5">
+                                <h2 class="row">ХАРАКТЕРИСТИКИ</h2>
+                            </div>
+
+                            <div class="row mt-2 row-cols-2 border-bottom border-top">
+
+                                <div class="col-sm-1 input-group input-group-sm mb-2">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Колір</span>
+                                    <input type="text" id="colorRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Стиль продукту</span>
+                                    <input type="text" id="styleRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-2">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Тип товару</span>
+                                    <input type="text" id="typeRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Бренд</span>
+                                    <input type="text" id="brandRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Колекція</span>
+                                    <input type="text" id="kolectionRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Країна походження</span>
+                                    <input type="text" id="countrRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Матеріал</span>
+                                    <input type="text" id="materialRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Поверхня</span>
+                                    <input type="text" id="surfaceRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Клас стирання</span>
+                                    <input type="text" id="clStRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Клас антиковзкості</span>
+                                    <input type="text" id="clSlRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Додаткові параметри</span>
+                                    <input type="text" id="otherRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Ширина</span>
+                                    <input type="text" id="widthRedact" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="col-sm-1 input-group input-group-sm mb-3">
+                                    <span class="input-group-text col-sm-2" id="inputGroup-sizing-sm">Довжина</span>
+                                    <input type="text" id="heightRedact" class="form-control me-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+                        </div>
+
+                        <!--end row-->
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- Start Back To Top Button <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>-->
+        <!--End Back To Top Button-->
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+   <!-- <script src="assets/js/bootstrap.bundle.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <!--app JS-->
+    <script src="assets/js/catalog.js"></script>
+    
+    <script src="assets/js/main.js"></script>
+  
+        <script src="assets/js/addPos.js"></script>
+
+    <script>
+
+    </script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
